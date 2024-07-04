@@ -12,39 +12,41 @@ function areBracketsBalanced(expr){
             continue; 
         } 
   
-        if (stack.length == 0) 
+        if (stack.length == 0){ 
             return "not balanced"; 
-              
+        }
         let check; 
         switch (x){ 
         case ')': 
             check = stack.pop(); 
-            if (check == '{' || check == '[') 
+            if (check == '{' || check == '[') {
                 return "not balanced"; 
+            }
             break; 
-  
         case '}': 
             check = stack.pop(); 
-            if (check == '(' || check == '[') 
+            if (check == '(' || check == '[') {
                 return "not balanced"; 
+            }
             break; 
   
         case ']': 
             check = stack.pop(); 
-            if (check == '(' || check == '{') 
+            if (check == '(' || check == '{') {
                 return "not balanced"; 
+            }
             break; 
         } 
     } 
     if(stack.length){
-        console.log("not balanced")
+        return "not balanced"
     }
     else{
-        console.log("balanced")
+        return "balanced"
     }
 } 
 
-areBracketsBalanced("{(){[]}}")             //balanced
-areBracketsBalanced("{(){}{[]}}[{()[]}]")   //balanced
-areBracketsBalanced("{(){[]}}}")            //not balanced
-areBracketsBalanced("{(){[{}]}}")           //not balanced 
+console.log(areBracketsBalanced("{(){[]}}"))             //balanced
+console.log(areBracketsBalanced("{(){}{[]}}[{()[]}]") )  //balanced
+console.log(areBracketsBalanced("{(){[]}}}"))            //not balanced
+console.log(areBracketsBalanced("{(){[{}{]}}"))          //not balanced 
